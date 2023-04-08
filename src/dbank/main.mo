@@ -1,12 +1,21 @@
 import Debug "mo:base/Debug";
+import Time "mo:base/Time";
+import Float "mo:base/Float";
+
 import Nat "mo:base/Nat";
-actor {
-  var currentvalue : Nat = 300;
-  currentvalue := 100;
-  let id = 3283927938723; //create a constant.
+actor DBank {
+  stable var currentvalue : Float = 300;
+  //currentvalue := 100;
+
+  //let id = 3283927938723; //create a constant.
+  //Debug.print(debug_show (id));
+
+  stable var startTime = Time.now();
+  //startTime := Time.now();
+  Debug.print(debug_show (startTime));
 
   //function to add or topup any amoount
-  public func topUp(amount : Nat) {
+  public func topUp(amount : Float) {
     currentvalue += amount;
     Debug.print(debug_show (currentvalue));
   };
@@ -16,8 +25,8 @@ actor {
   //dfx canister call dbank topUp
 
   //For withdraw wishing amount of tooken
-  public func topDown(amount : Nat) {
-    let tempValue : Int = currentvalue - amount;
+  public func topDown(amount : Float) {
+    let tempValue : Float = currentvalue - amount;
     if (tempValue >= 0) {
       currentvalue -= amount;
       Debug.print(debug_show (currentvalue));
@@ -27,8 +36,16 @@ actor {
   };
 
   //query functon.
-  public query func checkBalance() : async Nat {
+  public query func checkBalance() : async Float {
     return currentvalue;
+  };
+
+  public func compund() {
+    let currentTime = Time.now();
+    let timeElapsedNS = currentTime - startTime;
+    let timeElapsedS = timeElapsedNS / 1000000000;
+    currentvalue := currentvalue * (1.01 ** Float.fromInt(timeElapsedS));
+    startTime := currentTime;
   };
 
 };
