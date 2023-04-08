@@ -15,7 +15,7 @@ actor {
   //run this command in the terminal to acess any of public function:
   //dfx canister call dbank topUp
 
-  //For withdraw wishing amount
+  //For withdraw wishing amount of tooken
   public func topDown(amount : Nat) {
     let tempValue : Int = currentvalue - amount;
     if (tempValue >= 0) {
