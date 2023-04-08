@@ -25,7 +25,7 @@ actor DBank {
   //dfx canister call dbank topUp
 
   //For withdraw wishing amount of tooken
-  public func topDown(amount : Float) {
+  public func withdraw(amount : Float) {
     let tempValue : Float = currentvalue - amount;
     if (tempValue >= 0) {
       currentvalue -= amount;
