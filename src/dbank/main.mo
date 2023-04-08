@@ -26,4 +26,9 @@ actor {
     };
   };
 
+  //query functon.
+  public query func checkBalance() : async Nat {
+    return currentvalue;
+  };
+
 };
