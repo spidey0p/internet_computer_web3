@@ -5,13 +5,13 @@ import Float "mo:base/Float";
 import Nat "mo:base/Nat";
 actor DBank {
   stable var currentvalue : Float = 300;
-  //currentvalue := 100;
+  currentvalue := 100;
+  Debug.print(debug_show (currentvalue));
 
   //let id = 3283927938723; //create a constant.
-  //Debug.print(debug_show (id));
 
   stable var startTime = Time.now();
-  //startTime := Time.now();
+  startTime := Time.now();
   Debug.print(debug_show (startTime));
 
   //function to add or topup any amoount
