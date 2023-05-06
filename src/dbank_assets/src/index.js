@@ -20,6 +20,7 @@ document.querySelector("form").addEventListener("submit", async function (event)
     await dbank.topUp(inputAmount);
   }
 
+
   if (document.getElementById("withdrawal-amount").value.length != 0) {
     await dbank.topUp(outputAmount);
   }
