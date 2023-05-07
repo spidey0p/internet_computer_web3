@@ -22,7 +22,7 @@ document.querySelector("form").addEventListener("submit", async function (event)
 
 
   if (document.getElementById("withdrawal-amount").value.length != 0) {
-    await dbank.topUp(outputAmount);
+    await dbank.withdraw(outputAmount);
   }
 
 
