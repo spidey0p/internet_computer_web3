@@ -8,7 +8,8 @@ actor DBank {
   currentvalue := 300;
   Debug.print(debug_show (currentvalue));
 
-  //let id = 3283927938723; //create a constant.
+  //let id = 3283927938723;
+  //create a constant.
 
   stable var startTime = Time.now();
   startTime := Time.now();
